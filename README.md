@@ -1,20 +1,34 @@
-# secrete_friend_drawer
+![Mobile-Flutter: Flutter CI](capa.png)
 
-A new Flutter project.
+# Flutter: Integração Contínua
 
-## Getting Started
+Projeto Sorteador de amigo secreto para o curso Flutter CI.
 
-This project is a starting point for a Flutter application.
+### Tópicos abordados no curso:
 
-A few resources to get you started if this is your first Flutter project:
+- Integração contínua;
+- Pipelines;
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Este curso é indicado para pessoas que já tem conhecimento intermediário e querem aprofundar seu conhecimento em Flutter, elevando a qualidade da suas entregas, reduzindo a quantidade de bugs e garantido uma melhor escrita de código.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📑 Requisitos
 
-## Runnig integration tests
+- Conhecimentos intermediários de Flutter e Dart;
+- VS Code com plugins do Flutter e Dart instalados (recomendado para acompanhar este curso);
+- É importante ter o Flutter na versão 3.10.2.
 
-flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart
+## ✨ Funcionalidades do projeto
+
+- Inserir nomes de pessoas para um sorteio;
+- Selecionar um nome e sortear um outro nome, validando e seguindo as segras de um "amigo secreto";
+
+![GIF da aplicação em execução](sorteador.webm)
+
+## 🛠️ Abrir e rodar o projeto
+
+Aqui vem um passo a passo para abrir e rodar o projeto.
+
+- **Open an Existing Project** (ou alguma opção similar)
+- Procure o local onde o projeto está e o selecione (Caso o projeto seja baixado via zip, é necessário extraí-lo antes de procurá-lo)
+- Por fim clique em OK
+- Depois basta rodar o comando `flutter run` na pasta do projeto
