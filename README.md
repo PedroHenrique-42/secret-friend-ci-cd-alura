@@ -22,7 +22,7 @@ Este curso é indicado para pessoas que já tem conhecimento intermediário e qu
 - Inserir nomes de pessoas para um sorteio;
 - Selecionar um nome e sortear um outro nome, validando e seguindo as segras de um "amigo secreto";
 
-![GIF da aplicação em execução](sorteador.webm)
+![GIF da aplicação em execução](sorteador.gif)
 
 ## 🛠️ Abrir e rodar o projeto
 
