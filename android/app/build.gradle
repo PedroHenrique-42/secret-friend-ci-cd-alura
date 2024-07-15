@@ -79,6 +79,9 @@ android {
                 storePassword keystoreProperties['storePassword']
             }
         }
+
+        debug {
+        }
     }
 
     buildTypes {
