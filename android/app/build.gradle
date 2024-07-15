@@ -21,6 +21,11 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def buildNumber = flutterVersionCode.toInteger()
+def (major, minor, patch) = flutterVersionName.tokenize('.')
+
+def calculatedBuildVersion = major.toInteger() * 100000 + minor.toInteger() * 1000 + patch.toInteger() * 100 + buildNumber
+
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
@@ -56,7 +61,7 @@ android {
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
+        versionCode calculatedBuildVersion.toInteger()
         versionName flutterVersionName
     }
 
