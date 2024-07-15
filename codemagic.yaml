@@ -1,0 +1,36 @@
+workflows:
+  homolog-workflow:
+    name: Homolog Workflow
+    instance_type: mac_mini_m1
+    max_build_duration: 20
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          cd . && flutter packages pub get
+      - name: Flutter analyze
+        script: |
+          cd . && flutter analyze
+        ignore_failure: false
+      - name: Flutter unit tests
+        script: |
+          cd . && flutter test
+        ignore_failure: false
+      - name: Build APK with Flutter
+        script: |
+          cd . && flutter build apk
+    artifacts:
+      - build/**/outputs/**/*.apk 
+      - build/**/outputs/**/*.aab 
+      - build/**/outputs/**/mapping.txt
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - phlferezin03@gmail.com
+        notify:
+          success: true
+          failure: false
