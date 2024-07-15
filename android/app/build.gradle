@@ -68,9 +68,9 @@ android {
     signingConfigs {
         release {
             if (System.getenv()["CI"]) {
-                def loadedStoreFile = file(System.getenv()["CM_KEYSTORE_PATH"])
-                if (loadedStoreFile != null) {
-                    storeFile loadedStoreFile
+                def filePath = System.getenv()["CM_KEYSTORE_PATH"]
+                if (filePath != null) {
+                    storeFile file(filePath)
                     storePassword System.getenv()["CM_KEYSTORE_PASSWORD"]
                     keyAlias System.getenv()["CM_KEY_ALIAS"]
                     keyPassword System.getenv()["CM_KEY_PASSWORD"]
