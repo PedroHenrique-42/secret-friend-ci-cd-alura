@@ -67,10 +67,10 @@ android {
 
     signingConfigs {
         release {
-            if (System.getenv()["CI"]) {
-                def filePath = System.getenv()["CM_KEYSTORE_PATH"]
+            if (System.getenv()["CI"] && System.getenv()["CM_KEYSTORE_PATH"] != null) {
+                def filePath = 
                 if (filePath != null) {
-                    storeFile file(filePath)
+                    storeFile file(System.getenv()["CM_KEYSTORE_PATH"])
                     storePassword System.getenv()["CM_KEYSTORE_PASSWORD"]
                     keyAlias System.getenv()["CM_KEY_ALIAS"]
                     keyPassword System.getenv()["CM_KEY_PASSWORD"]
@@ -86,7 +86,12 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            if (System.getenv()["CI"] && System.getenv()["CM_KEYSTORE_PATH"] != null) {
+                signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
+            }
+
         }
     }
 }
