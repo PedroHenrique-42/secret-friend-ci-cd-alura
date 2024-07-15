@@ -68,10 +68,13 @@ android {
     signingConfigs {
         release {
             if (System.getenv()["CI"]) {
-                storeFile file(System.getenv()["CM_KEYSTORE_PATH"])
-                storePassword System.getenv()["CM_KEYSTORE_PASSWORD"]
-                keyAlias System.getenv()["CM_KEY_ALIAS"]
-                keyPassword System.getenv()["CM_KEY_PASSWORD"]
+                def loadedStoreFile = file(System.getenv()["CM_KEYSTORE_PATH"])
+                if (loadedStoreFile != null) {
+                    storeFile loadedStoreFile
+                    storePassword System.getenv()["CM_KEYSTORE_PASSWORD"]
+                    keyAlias System.getenv()["CM_KEY_ALIAS"]
+                    keyPassword System.getenv()["CM_KEY_PASSWORD"]
+                }
             } else {
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
@@ -79,15 +82,9 @@ android {
                 storePassword keystoreProperties['storePassword']
             }
         }
-
-        debug {
-        }
     }
 
     buildTypes {
-        debug {
-            signingConfig signingConfigs.debug
-        }
         release {
             signingConfig signingConfigs.release
         }
